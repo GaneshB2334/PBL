@@ -19,8 +19,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <Routes>
         <Route element={<ProtectedRoute user={user} />} >
           <Route path='/home' element={<Home />} />
-          <Route path='/fnby' element={<FNby />} />
-          <Route path='/bookappnt' element={<BookAppointment />} />
+          <Route path='/home/fnby' element={<FNby />} />
+          <Route path='/home/bookappnt' element={<BookAppointment />} />
           <Route path='*' element={<DefaultRoute/>}/>
         </Route>
         <Route path='/' element={<App />} />
