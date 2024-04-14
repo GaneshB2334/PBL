@@ -10,6 +10,7 @@ const FooterContainer = styled('footer')({
   bottom: 0,
   left: 0,
   width: '100%',
+  margin: "12px 0 0 0", 
 });
 
 const Footer = () => {

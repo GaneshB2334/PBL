@@ -1,14 +1,12 @@
-import React from 'react'
-import { Navigate } from "react-router-dom"
-const ProtectedRoute = ({ children, user, redirect = '/home' }) => {
+import React from 'react';
+import { Outlet, Navigate } from 'react-router-dom';
 
-    if (user) {
-        return <Navigate to={redirect} />
-    }
-    else {
-        return children;
+const ProtectedRoute = ({ children, user,redirect="/" }) => {
+    if (!user) {
+        return <Navigate to={redirect} />;
     }
 
-}
+    return children ? children : <Outlet />;
+};
 
-export default ProtectedRoute
+export default ProtectedRoute;
