@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import DropDown from "/DropDown.svg"
-
 const BookAppointment = () => {
     const [formData, setFormData] = useState({
         date: '',
@@ -33,11 +31,6 @@ const BookAppointment = () => {
             [name]: value
         }));
 
-    };
-    const handleDropDown = (e) => {
-    }
-    const handleSelect = (option) => {
-        setOptions(option);
     };
     useEffect(() => {
         localStorage.setItem('formData', JSON.stringify(formData));
