@@ -10,7 +10,7 @@ const BookAppointment = () => {
         contact: '',
         query: '',
     });
-
+    
     useEffect(() => {
         const formDataFromStorage = localStorage.getItem('formData');
         if (formDataFromStorage) {
@@ -54,16 +54,16 @@ const BookAppointment = () => {
                         <input id='date' className='rounded-md p-2 cursor-pointer w-[50%]' name='date' value={formData.date} onChange={handleChange} type="date" />
                     </div>
                     <div className='flex justify-evenly w-full border-2 border-black p-3 items-center'>
-                        <label className='w-[40%]' htmlFor="name">Your Name:</label>
-                        <input id='name' className='rounded-md p-2 cursor-text w-[50%]' type="text" name="name" value={formData.name} onChange={handleChange} />
-                    </div>
-                    <div className='flex justify-evenly w-full border-2 border-black p-3 items-center'>
                         <label className='w-[40%]' htmlFor="pet">Pet (e.g.: dog, cat, etc) :</label>
                         <input id='pet' className='rounded-md p-2 cursor-text w-[50%]' type="text" name="pet" value={formData.pet} onChange={handleChange} />
                     </div>
                     <div className='flex justify-evenly w-full border-2 border-black p-3 items-center'>
                         <label className='w-[40%]' htmlFor="petSymptoms">Pet Symptoms :</label>
                         <input id='petSymptoms' className='rounded-md p-2 cursor-text w-[50%]' type="text" name="petSymptoms" value={formData.petSymptoms} onChange={handleChange} />
+                    </div>
+                    <div className='flex justify-evenly w-full border-2 border-black p-3 items-center'>
+                        <label className='w-[40%]' htmlFor="name">Your Name:</label>
+                        <input id='name' className='rounded-md p-2 cursor-text w-[50%]' type="text" name="name" value={formData.name} onChange={handleChange} />
                     </div>
                     <div className='flex justify-evenly w-full border-2 border-black p-3 items-center'>
                         <label className='w-[40%]' htmlFor="contact">Mobile Number :</label>
