@@ -13,8 +13,6 @@ import {
   Button,
   Grid,
 } from "@mui/material";
-import DogImg from "/Dog.jpg"
-import Dog2 from "/Dog2.jpeg"
 
 export default function App() {
   const [password, setPassword] = useState('')
@@ -131,7 +129,7 @@ export default function App() {
 
 
     {isLogin ?
-      <Container className="relative shadow-2xl rounded-xl z-10 bg-white bg-opacity-70 font-semibold text-black" component="main" maxWidth="xs">
+      <Container className="relative shadow-2xl rounded-xl z-10 bg-white bg-opacity-70 font-semibold" component="main" maxWidth="xs">
       <Box
         sx={{
           marginTop: 8,
