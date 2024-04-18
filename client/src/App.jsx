@@ -119,7 +119,7 @@ export default function App() {
 
   return (<>
     <h1 className="relative z-10 font-extrabold text-[30px] w-full text-center pt-4">Dog's Companion</h1>
-    <img className="absolute w-[100vw] h-[100vh] top-0 left-0 z-0 opacity-100" src="https://wallpaperaccess.com/full/769133.jpg" alt="" />
+    <img className="absolute w-[100vw] top-0 left-0 z-0 opacity-100 object-cover" src="https://wallpaperaccess.com/full/769133.jpg" alt="" />
 
 
     <div className="flex justify-center">

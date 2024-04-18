@@ -34,10 +34,12 @@ const LocationComponent = () => {
     }, []);
 
     return (
-        <div className='w-[50%] h-[30vh] m-auto mt-3 flex justify-evenly items-center rounded-xl bg-[#529add] text-[23px] '>
-            <button onClick={handleOpenGoogleMaps}>Open Google Maps</button>
-            {error && <div>{error}</div>}
-            <img className='w-[30px] h-[30px] cursor-pointer' onClick={handleOpenGoogleMaps} src={ExpandRight} alt="" />
+        <div className='min-h-[80vh]'>
+            <div className='w-[50%] h-[30vh] m-auto mt-3 flex justify-evenly items-center rounded-xl bg-[#529add] text-[23px] '>
+                <button onClick={handleOpenGoogleMaps}>Open Google Maps</button>
+                {error && <div>{error}</div>}
+                <img className='w-[30px] h-[30px] cursor-pointer' onClick={handleOpenGoogleMaps} src={ExpandRight} alt="" />
+            </div>
         </div>
     );
 };
