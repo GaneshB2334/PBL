@@ -1,8 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
-import {useNavigate} from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import axios from "axios";
 import cross from "/cross.svg";
 import "./App.css"
+import { useContext } from "react";
+import userContext from "./auth/userContext";
 import {
   Container,
   Typography,
@@ -14,7 +16,9 @@ import {
   Grid,
 } from "@mui/material";
 
+
 export default function App() {
+  const value = useContext(userContext)
   const [password, setPassword] = useState('')
   const [confirmPassword, setconfirmPassword] = useState('')
   const [isLogin, setIsLogin] = useState(true);
@@ -40,8 +44,8 @@ export default function App() {
         setIsLogin(true)
       }, 2500);
     }
-    else if (response.data==='AlreadyPresent') {
-      setMessage({register:`User already exists!`})
+    else if (response.data === 'AlreadyPresent') {
+      setMessage({ register: `User already exists!` })
       setRegistersuccess(true)
     }
     else {
@@ -57,6 +61,7 @@ export default function App() {
       if (response.data.message === "Success") {
         setMessage({ login: `Welcome ${response.data.name}` })
         setTimeout(() => {
+          value.setuser(true)
           navigate('/home')
         }, 2500);
         setRegistersuccess(true)
@@ -130,71 +135,71 @@ export default function App() {
 
     {isLogin ?
       <Container className="relative shadow-2xl rounded-xl z-10 bg-white bg-opacity-70 font-semibold" component="main" maxWidth="xs">
-      <Box
-        sx={{
-          marginTop: 8,
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-        }}
-      >
-        <Typography component="h1" variant="h5">
-          Sign in
-        </Typography>
-        <Box component="form" onSubmit={handleLogin} noValidate sx={{ mt: 1 }}>
-          <TextField
-            margin="normal"
-            required
-            fullWidth
-            id="email"
-            label="Email Address"
-            value={email}
-            onChange={(e) => { setEmail(e.currentTarget.value) }}
-            name="email"
-            autoComplete="email"
-            autoFocus
-          />
-          <TextField
-            margin="normal"
-            required
-            fullWidth
-            name="password"
-            label="Password"
-            value={password}
-            onChange={(e) => { setPassword(e.currentTarget.value) }}
-            type="password"
-            id="password"
-            autoComplete="current-password"
-          />
-          <FormControlLabel
-            control={<Checkbox value="remember" color="primary" />}
-            label="Remember me"
-          />
-          <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            sx={{ mt: 3, mb: 2 }}
-          >
-            Sign In
-          </Button>
-          <div className="">
-            <Grid container>
-              <Grid item xs>
-                <div className="text-blue-600 underline cursor-not-allowed" variant="body2">
-                  Forgot password?
-                </div>
+        <Box
+          sx={{
+            marginTop: 8,
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+        >
+          <Typography component="h1" variant="h5">
+            Sign in
+          </Typography>
+          <Box component="form" onSubmit={handleLogin} noValidate sx={{ mt: 1 }}>
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              id="email"
+              label="Email Address"
+              value={email}
+              onChange={(e) => { setEmail(e.currentTarget.value) }}
+              name="email"
+              autoComplete="email"
+              autoFocus
+            />
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              name="password"
+              label="Password"
+              value={password}
+              onChange={(e) => { setPassword(e.currentTarget.value) }}
+              type="password"
+              id="password"
+              autoComplete="current-password"
+            />
+            <FormControlLabel
+              control={<Checkbox value="remember" color="primary" />}
+              label="Remember me"
+            />
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              sx={{ mt: 3, mb: 2 }}
+            >
+              Sign In
+            </Button>
+            <div className="">
+              <Grid container>
+                <Grid item xs>
+                  <div className="text-blue-600 underline cursor-not-allowed" variant="body2">
+                    Forgot password?
+                  </div>
+                </Grid>
+                <Grid item>
+                  <div className="text-blue-600 underline cursor-pointer" variant="body2" onClick={() => { setIsLogin(false) }} >
+                    {"Don't have an account? Sign Up"}
+                  </div>
+                </Grid>
               </Grid>
-              <Grid item>
-                <div className="text-blue-600 underline cursor-pointer" variant="body2" onClick={() => { setIsLogin(false) }} >
-                  {"Don't have an account? Sign Up"}
-                </div>
-              </Grid>
-            </Grid>
-          </div>
+            </div>
+          </Box>
         </Box>
-      </Box>
-    </Container>
+      </Container>
 
       :
 
