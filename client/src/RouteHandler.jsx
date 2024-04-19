@@ -11,7 +11,7 @@ import DefaultRoute from './Routes/DefaultRoute.jsx'
 import userContext from './auth/userContext.js'
 
 const RouteHandler = () => {
-    const [user, setuser] = useState(true)
+    const [user, setuser] = useState(false)
     useEffect(() => {
         if (localStorage.getItem('user')) {
             setuser(true)
