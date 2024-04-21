@@ -31,6 +31,10 @@ export default function App() {
 
   const [message, setMessage] = useState({ login: '', register: 'Registered Successfully' })
 
+  useEffect(() => {
+    setEmail('')
+    setPassword('')
+  }, [isLogin])
 
   const handleRegister = async (event) => {
     setRegistersuccess(true)
